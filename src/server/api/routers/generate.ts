@@ -5,9 +5,18 @@ import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
 import { OpenAI } from "openai";
 import { env } from "~/env.mjs";
 import { b64Image } from "~/data/b64Image";
+import { S3 } from "@aws-sdk/client-s3";
 
 const openai = new OpenAI({
   apiKey: env.OPENAI_API_KEY,
+});
+
+const s3 = new S3({
+  credentials: {
+    accessKeyId: env.AWS_ACCESS_KEY,
+    secretAccessKey: env.AWS_SECRET_KEY,
+  },
+  region: env.AWS_REGION,
 });
 
 async function generateIcon(prompt: string): Promise<string | undefined> {
@@ -58,6 +67,20 @@ export const generateRouter = createTRPCRouter({
       }
 
       const base64EncodedImage = await generateIcon(input.prompt);
+
+      if (!base64EncodedImage) {
+        return {
+          message: "failure",
+        };
+      }
+
+      await s3.putObject({
+        Key: "my-imageC", // TODO: generate a random id for object key
+        Body: Buffer.from(base64EncodedImage, "base64"),
+        Bucket: env.AWS_S3_BUCKET_NAME,
+        ContentEncoding: "base64",
+        ContentType: "image/png",
+      });
 
       return {
         message: "success",
