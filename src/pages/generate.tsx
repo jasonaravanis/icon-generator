@@ -11,13 +11,16 @@ const GeneratePage: NextPage = () => {
   const [form, setForm] = useState({
     prompt: "",
   });
+  const [imageUrl, setImageUrl] = useState("");
   const session = useSession();
 
   const isLoggedIn = !!session.data;
 
   const generateIcon = api.generate.generateIcon.useMutation({
     onSuccess(data) {
-      console.log("mutation finished", data);
+      console.log("mutation finished", data.imageUrl);
+      if (!data.imageUrl) return;
+      setImageUrl(data.imageUrl);
     },
   });
 
@@ -53,6 +56,7 @@ const GeneratePage: NextPage = () => {
           </FormGroup>
           <Button>Submit</Button>
         </form>
+        <img src={imageUrl} />
       </main>
     </>
   );
