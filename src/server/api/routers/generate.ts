@@ -74,8 +74,15 @@ export const generateRouter = createTRPCRouter({
         };
       }
 
+      const icon = await ctx.prisma.icon.create({
+        data: {
+          prompt: input.prompt,
+          userId: ctx.session.user.id,
+        },
+      });
+
       await s3.putObject({
-        Key: "my-imageC", // TODO: generate a random id for object key
+        Key: icon.id,
         Body: Buffer.from(base64EncodedImage, "base64"),
         Bucket: env.AWS_S3_BUCKET_NAME,
         ContentEncoding: "base64",
