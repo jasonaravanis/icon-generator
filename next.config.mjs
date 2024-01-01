@@ -9,6 +9,9 @@
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
+  images: {
+    domains: ["oaidalleapiprodscus.blob.core.windows.net"], // TODO: remove this if only using base64 results from dall-e instead of url links
+  },
 
   /**
    * If you have the "experimental: { appDir: true }" setting enabled, then you
