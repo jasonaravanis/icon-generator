@@ -7,6 +7,8 @@ import { env } from "~/env.mjs";
 import { b64Image } from "~/data/b64Image";
 import { S3 } from "@aws-sdk/client-s3";
 
+// TODO: add error handling i.e if prompt is rejected by DALL-E due to content policy
+
 const openai = new OpenAI({
   apiKey: env.OPENAI_API_KEY,
 });
@@ -89,9 +91,11 @@ export const generateRouter = createTRPCRouter({
         ContentType: "image/png",
       });
 
+      const s3ImageUrl = `https://${env.AWS_S3_BUCKET_NAME}.s3.${env.AWS_REGION}.amazonaws.com/${icon.id}`;
+
       return {
         message: "success",
-        base64EncodedImage: base64EncodedImage,
+        s3ImageUrl,
       };
     }),
 });

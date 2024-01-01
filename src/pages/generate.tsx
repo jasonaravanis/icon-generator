@@ -19,8 +19,8 @@ const GeneratePage: NextPage = () => {
 
   const generateIcon = api.generate.generateIcon.useMutation({
     onSuccess(data) {
-      if (!data.base64EncodedImage) return;
-      setImage(data.base64EncodedImage);
+      if (!data.s3ImageUrl) return;
+      setImage(data.s3ImageUrl);
     },
   });
 
@@ -59,7 +59,7 @@ const GeneratePage: NextPage = () => {
         </form>
         {!!image && (
           <Image
-            src={`data:image/png;base64, ${image}`}
+            src={image}
             alt="an image of your generated prompt"
             width={100}
             height={100}
