@@ -27,6 +27,9 @@ const server = z.object({
   AWS_SECRET_KEY: z.string(),
   AWS_REGION: z.string(),
   AWS_S3_BUCKET_NAME: z.string(),
+  STRIPE_SECRET_KEY: z.string(),
+  STRIPE_PRICE_ID: z.string(),
+  HOST_NAME: z.string(),
 });
 
 /**
@@ -34,6 +37,7 @@ const server = z.object({
  * built with invalid env vars. To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
 const client = z.object({
+  NEXT_PUBLIC_STRIPE_KEY: z.string(),
   // NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
 });
 
@@ -56,6 +60,10 @@ const processEnv = {
   AWS_SECRET_KEY: process.env.AWS_SECRET_KEY,
   AWS_REGION: process.env.AWS_REGION,
   AWS_S3_BUCKET_NAME: process.env.AWS_S3_BUCKET_NAME,
+  NEXT_PUBLIC_STRIPE_KEY: process.env.NEXT_PUBLIC_STRIPE_KEY,
+  STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
+  HOST_NAME: process.env.HOST_NAME,
+  STRIPE_PRICE_ID: process.env.STRIPE_PRICE_ID,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 
@@ -82,6 +90,7 @@ if (!!process.env.SKIP_ENV_VALIDATION == false) {
   if (parsed.success === false) {
     console.error(
       "❌ Invalid environment variables:",
+      `isServer: ${isServer}`,
       parsed.error.flatten().fieldErrors
     );
     throw new Error("Invalid environment variables");
