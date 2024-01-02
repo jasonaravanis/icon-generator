@@ -1,11 +1,6 @@
-import { z } from "zod";
 import Stripe from "stripe";
 
-import {
-  createTRPCRouter,
-  publicProcedure,
-  protectedProcedure,
-} from "~/server/api/trpc";
+import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
 import { env } from "~/env.mjs";
 
 const stripe = new Stripe(env.STRIPE_SECRET_KEY);

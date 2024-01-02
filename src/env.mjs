@@ -29,6 +29,7 @@ const server = z.object({
   AWS_S3_BUCKET_NAME: z.string(),
   STRIPE_SECRET_KEY: z.string(),
   STRIPE_PRICE_ID: z.string(),
+  STRIPE_WEBHOOK_SECRET: z.string(),
   HOST_NAME: z.string(),
 });
 
@@ -64,6 +65,7 @@ const processEnv = {
   STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
   HOST_NAME: process.env.HOST_NAME,
   STRIPE_PRICE_ID: process.env.STRIPE_PRICE_ID,
+  STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 
