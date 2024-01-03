@@ -23,8 +23,8 @@ const s3 = new S3({
 
 async function generateIcon(prompt: string): Promise<string | undefined> {
   // make sure this is explicitly "true" or "false" as flag is a string, not a bool
-  if (env.MOCK_DALLE === "true") {
-    return b64Image; // TODO: refactor so we don't actually upload this base64 blob to S3 when using the mock
+  if (env.MOCK_IMAGE_GENERATION === "true") {
+    return b64Image;
   }
 
   const response = await openai.images.generate({
@@ -82,6 +82,13 @@ export const generateRouter = createTRPCRouter({
           userId: ctx.session.user.id,
         },
       });
+
+      if (env.MOCK_IMAGE_GENERATION) {
+        return {
+          message: "success - using mock",
+          s3ImageUrl: env.MOCK_AWS_S3_IMAGE_URL,
+        };
+      }
 
       await s3.putObject({
         Key: icon.id,
