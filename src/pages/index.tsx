@@ -9,8 +9,7 @@ function HeroBanner() {
       <div className=" flex flex-col gap-4">
         <h1 className="text-6xl">Generate icons with a click of a button</h1>
         <p className=" text-2xl">
-          Use AI to generate icons in seconds instead of paying a designer and
-          waiting from the create them for you.
+          Use AI to generate the professional icons you need in seconds
         </p>
         <Button href="/generate">Generate your icons</Button>
       </div>
