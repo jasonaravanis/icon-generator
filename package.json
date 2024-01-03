@@ -28,6 +28,7 @@
     "react-dom": "18.2.0",
     "stripe": "^14.10.0",
     "superjson": "1.9.1",
+    "tailwind-variants": "^0.1.19",
     "zod": "^3.20.6"
   },
   "devDependencies": {
