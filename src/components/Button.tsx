@@ -1,7 +1,8 @@
+import Link, { LinkProps } from "next/link";
 import { VariantProps, tv } from "tailwind-variants";
 
-const button = tv({
-  base: "rounded py-2 px-4",
+const style = tv({
+  base: "rounded py-2 px-4 w-fit",
   variants: {
     color: {
       primary: "bg-blue-400 hover:bg-blue-500",
@@ -13,17 +14,25 @@ const button = tv({
   },
 });
 
-type ButtonVariants = VariantProps<typeof button>;
+type ButtonVariants = VariantProps<typeof style>;
 
-type ButtonProps = React.ComponentPropsWithoutRef<"button"> &
-  React.PropsWithChildren & {
+type LinkOrButtonProps = LinkProps | React.ComponentPropsWithoutRef<"button">;
+
+type Props = React.PropsWithChildren &
+  LinkOrButtonProps & {
     variant?: ButtonVariants;
   };
 
-export function Button(props: ButtonProps) {
-  const { variant } = props;
+export function Button({ variant, ...props }: Props) {
+  if ("href" in props) {
+    return (
+      <Link {...props} className={style(variant)}>
+        {props.children}
+      </Link>
+    );
+  }
   return (
-    <button {...props} className={button(variant)}>
+    <button {...props} className={style(variant)}>
       {props.children}
     </button>
   );

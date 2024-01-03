@@ -14,10 +14,6 @@ const GeneratePage: NextPage = () => {
     prompt: "",
   });
   const [image, setImage] = useState("");
-  const session = useSession();
-  const { buyCredits } = useBuyCredits();
-
-  const isLoggedIn = !!session.data;
 
   const generateIcon = api.generate.generateIcon.useMutation({
     onSuccess(data) {
@@ -46,19 +42,6 @@ const GeneratePage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center">
-        {!isLoggedIn && (
-          <Button onClick={() => signIn().catch(console.error)}>Login</Button>
-        )}
-        {isLoggedIn && (
-          <>
-            <Button onClick={() => signOut().catch(console.error)}>
-              Logout
-            </Button>
-            <Button onClick={() => buyCredits().catch(console.error)}>
-              Buy Credits
-            </Button>
-          </>
-        )}
         <form className="flex flex-col gap-4" onSubmit={handleFormSubmit}>
           <FormGroup>
             <label>Prompt</label>
