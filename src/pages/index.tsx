@@ -5,7 +5,7 @@ import { Button } from "~/components/Button";
 
 function HeroBanner() {
   return (
-    <section className=" grid grid-cols-2 gap-12">
+    <section className="order mb-24 grid grid-cols-1 gap-12 sm:grid-cols-2">
       <div className=" flex flex-col gap-4">
         <h1 className="text-6xl">Generate icons with a click of a button</h1>
         <p className=" text-2xl">
@@ -18,6 +18,7 @@ function HeroBanner() {
         alt="A gallery of icons"
         width="450"
         height="300"
+        className=" order-first sm:order-none"
       />
     </section>
   );
