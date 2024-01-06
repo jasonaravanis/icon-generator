@@ -1,8 +1,9 @@
 import Link, { LinkProps } from "next/link";
 import { VariantProps, tv } from "tailwind-variants";
+import { LoadingSpinner } from "./LoadingSpinner";
 
 const style = tv({
-  base: "rounded py-2 px-4 w-fit",
+  base: "rounded py-2 px-4 w-fit min-w-24 disabled:bg-gray-300 disabled:text-gray-500",
   variants: {
     color: {
       primary: "bg-blue-400 hover:bg-blue-500",
@@ -21,9 +22,10 @@ type LinkOrButtonProps = LinkProps | React.ComponentPropsWithoutRef<"button">;
 type Props = React.PropsWithChildren &
   LinkOrButtonProps & {
     variant?: ButtonVariants;
+    isLoading?: boolean;
   };
 
-export function Button({ variant, ...props }: Props) {
+export function Button({ variant, isLoading, ...props }: Props) {
   if ("href" in props) {
     return (
       <Link {...props} className={style(variant)}>
@@ -33,7 +35,8 @@ export function Button({ variant, ...props }: Props) {
   }
   return (
     <button {...props} className={style(variant)}>
-      {props.children}
+      {isLoading && <LoadingSpinner />}
+      {!isLoading && props.children}
     </button>
   );
 }
