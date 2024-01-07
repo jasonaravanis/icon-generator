@@ -27,12 +27,15 @@ async function generateIcon(prompt: string): Promise<string | undefined> {
     return b64Image;
   }
 
+  console.log("getting real image from DALL-E API");
+
   const response = await openai.images.generate({
-    model: "dall-e-2",
+    model: "dall-e-3",
     prompt,
     n: 1,
     size: "1024x1024",
     response_format: "b64_json",
+    quality: "hd",
   });
 
   return response.data[0]?.b64_json;
@@ -42,11 +45,12 @@ export const generateRouter = createTRPCRouter({
   generateIcon: protectedProcedure
     .input(
       z.object({
-        prompt: z.string({}),
+        prompt: z.string(),
+        color: z.string(),
+        style: z.string(),
       })
     )
     .mutation(async ({ ctx, input }) => {
-      console.log("we are here", input.prompt);
       const { count } = await ctx.prisma.user.updateMany({
         where: {
           id: ctx.session.user.id,
@@ -68,7 +72,11 @@ export const generateRouter = createTRPCRouter({
         });
       }
 
-      const base64EncodedImage = await generateIcon(input.prompt);
+      const combinedPrompt = `A beautiful app icon of ${input.prompt} in a ${input.style} style. The colour should be ${input.color}.`;
+
+      console.log("combinedPrompt", combinedPrompt);
+
+      const base64EncodedImage = await generateIcon(combinedPrompt);
 
       if (!base64EncodedImage) {
         return {
@@ -83,7 +91,7 @@ export const generateRouter = createTRPCRouter({
         },
       });
 
-      if (env.MOCK_IMAGE_GENERATION) {
+      if (env.MOCK_IMAGE_GENERATION === "true") {
         await (async () =>
           new Promise((resolve: any) => setTimeout(resolve, 2000)))();
         return {

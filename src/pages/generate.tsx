@@ -4,17 +4,14 @@ import { FormGroup } from "~/components/FormGroup";
 import { Input } from "~/components/Input";
 import { useState } from "react";
 import { api } from "~/utils/api";
-import { signIn, signOut, useSession } from "next-auth/react";
 import { Button } from "~/components/Button";
 import Image from "next/image";
-import { useBuyCredits } from "~/hooks/useBuyCredits";
-import { LoadingSpinner } from "~/components/LoadingSpinner";
-import { linkSync } from "fs";
-import { CLIENT_STATIC_FILES_RUNTIME_POLYFILLS } from "next/dist/shared/lib/constants";
 
 const GeneratePage: NextPage = () => {
   const [form, setForm] = useState({
     prompt: "",
+    color: "",
+    style: "",
   });
   const [image, setImage] = useState("");
 
@@ -27,8 +24,11 @@ const GeneratePage: NextPage = () => {
 
   function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
-    generateIcon.mutate({ prompt: form.prompt });
-    setForm({ prompt: "" });
+    generateIcon.mutate({
+      prompt: form.prompt,
+      color: form.color,
+      style: form.style,
+    });
   }
 
   function updateForm(key: string) {
@@ -58,7 +58,13 @@ const GeneratePage: NextPage = () => {
           <h2 className="text-2xl">Pick your icon color</h2>
           <FormGroup>
             <label>
-              <input type="radio" name="color"></input>
+              <Input value={form.color} onChange={updateForm("color")} />
+            </label>
+          </FormGroup>
+          <h2 className="text-2xl">Pick your icon style</h2>
+          <FormGroup>
+            <label>
+              <Input value={form.style} onChange={updateForm("style")} />
             </label>
           </FormGroup>
 
