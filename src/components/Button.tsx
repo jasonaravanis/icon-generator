@@ -1,5 +1,7 @@
-import Link, { LinkProps } from "next/link";
-import { VariantProps, tv } from "tailwind-variants";
+import Link from "next/link";
+import type { LinkProps } from "next/link";
+import { tv } from "tailwind-variants";
+import type { VariantProps } from "tailwind-variants";
 import { LoadingSpinner } from "./LoadingSpinner";
 
 const style = tv({

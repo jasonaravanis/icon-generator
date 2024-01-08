@@ -20,14 +20,24 @@ export function Header() {
         {isLoggedIn && (
           <>
             <li>
-              <Button onClick={() => buyCredits().catch(console.error)}>
+              <Button
+                onClick={() => {
+                  void (async () => {
+                    await buyCredits().catch(console.error);
+                  })();
+                }}
+              >
                 Buy Credits
               </Button>
             </li>
             <li>
               <Button
                 variant={{ color: "secondary" }}
-                onClick={() => signOut().catch(console.error)}
+                onClick={() => {
+                  void (async () => {
+                    await signOut().catch(console.error);
+                  })();
+                }}
               >
                 Logout
               </Button>
@@ -36,7 +46,15 @@ export function Header() {
         )}
         {!isLoggedIn && (
           <li>
-            <Button onClick={() => signIn().catch(console.error)}>Login</Button>
+            <Button
+              onClick={() => {
+                void (async () => {
+                  await signIn().catch(console.error);
+                })();
+              }}
+            >
+              Login
+            </Button>
           </li>
         )}
       </ul>

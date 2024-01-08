@@ -93,7 +93,9 @@ export const generateRouter = createTRPCRouter({
 
       if (env.MOCK_IMAGE_GENERATION === "true") {
         await (async () =>
-          new Promise((resolve: any) => setTimeout(resolve, 2000)))();
+          new Promise((resolve: (val: unknown) => void) =>
+            setTimeout(resolve, 2000)
+          ))();
         return {
           message: "success - using mock",
           s3ImageUrl: env.MOCK_AWS_S3_IMAGE_URL,
