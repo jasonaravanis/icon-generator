@@ -31,6 +31,7 @@ const server = z.object({
   STRIPE_SECRET_KEY: z.string(),
   STRIPE_PRICE_ID: z.string(),
   STRIPE_WEBHOOK_SECRET: z.string(),
+  STRIPE_WEBHOOK_SIGNING_SECRET: z.string(),
   HOST_NAME: z.string(),
 });
 
@@ -67,6 +68,7 @@ const processEnv = {
   HOST_NAME: process.env.HOST_NAME,
   STRIPE_PRICE_ID: process.env.STRIPE_PRICE_ID,
   STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
+  STRIPE_WEBHOOK_SIGNING_SECRET: process.env.STRIPE_WEBHOOK_SIGNING_SECRET,
   MOCK_AWS_S3_IMAGE_URL: process.env.MOCK_AWS_S3_IMAGE_URL,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
