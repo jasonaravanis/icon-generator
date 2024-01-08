@@ -15,10 +15,10 @@ const openai = new OpenAI({
 
 const s3 = new S3({
   credentials: {
-    accessKeyId: env.AWS_ACCESS_KEY,
-    secretAccessKey: env.AWS_SECRET_KEY,
+    accessKeyId: env.CLOUD_AWS_ACCESS_KEY,
+    secretAccessKey: env.CLOUD_AWS_SECRET_KEY,
   },
-  region: env.AWS_REGION,
+  region: env.CLOUD_AWS_REGION,
 });
 
 async function generateIcon(prompt: string): Promise<string | undefined> {
@@ -103,12 +103,12 @@ export const generateRouter = createTRPCRouter({
       await s3.putObject({
         Key: icon.id,
         Body: Buffer.from(base64EncodedImage, "base64"),
-        Bucket: env.AWS_S3_BUCKET_NAME,
+        Bucket: env.CLOUD_AWS_S3_BUCKET_NAME,
         ContentEncoding: "base64",
         ContentType: "image/png",
       });
 
-      const s3ImageUrl = `https://${env.AWS_S3_BUCKET_NAME}.s3.${env.AWS_REGION}.amazonaws.com/${icon.id}`;
+      const s3ImageUrl = `https://${env.CLOUD_AWS_S3_BUCKET_NAME}.s3.${env.CLOUD_AWS_REGION}.amazonaws.com/${icon.id}`;
 
       return {
         message: "success",

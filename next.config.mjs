@@ -12,7 +12,9 @@ import { env } from "./src/env.mjs";
 const config = {
   reactStrictMode: true,
   images: {
-    domains: [`${env.AWS_S3_BUCKET_NAME}.s3.${env.AWS_REGION}.amazonaws.com`],
+    domains: [
+      `${env.CLOUD_AWS_S3_BUCKET_NAME}.s3.${env.CLOUD_AWS_REGION}.amazonaws.com`,
+    ],
   },
 
   /**
