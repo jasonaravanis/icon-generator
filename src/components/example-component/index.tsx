@@ -1,3 +1,5 @@
+import { test } from "./styles.css";
+
 export const ExampleComponent = () => {
-  return <p>Hello World</p>;
+  return <p className={test}>Hello World</p>;
 };
