@@ -1,4 +1,5 @@
 import { ExampleComponent } from "@components/example-component";
+import { NavBar } from "@components/nav-bar";
 import Head from "next/head";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <NavBar />
         <ExampleComponent />
       </main>
     </>
