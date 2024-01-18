@@ -29,7 +29,8 @@
       "@components/*": ["./src/components/*"],
       "@server/*": ["./src/server/*"],
       "@utils/*": ["./src/utils/*"],
-      "@env": ["./src/env"]
+      "@env": ["./src/env"],
+      "@style-system/*": ["./src/styles/*"]
     }
   },
   "include": [

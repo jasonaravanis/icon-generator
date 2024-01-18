@@ -22,6 +22,9 @@
     "@trpc/react-query": "^10.43.6",
     "@trpc/server": "^10.43.6",
     "@vanilla-extract/css": "^1.14.0",
+    "@vanilla-extract/sprinkles": "^1.6.1",
+    "clsx": "^2.1.0",
+    "lodash": "^4.17.21",
     "next": "^14.0.4",
     "next-auth": "^4.24.5",
     "react": "18.2.0",
@@ -31,6 +34,8 @@
   },
   "devDependencies": {
     "@types/eslint": "^8.44.7",
+    "@types/jest": "^29.5.11",
+    "@types/lodash": "^4.14.202",
     "@types/node": "^18.17.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
@@ -39,6 +44,7 @@
     "@vanilla-extract/next-plugin": "^2.3.2",
     "eslint": "^8.54.0",
     "eslint-config-next": "^14.0.4",
+    "jest": "^29.7.0",
     "prisma": "^5.6.0",
     "typescript": "^5.1.6"
   },

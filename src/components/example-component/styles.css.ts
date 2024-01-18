@@ -1,5 +1,6 @@
-import { style } from "@vanilla-extract/css";
+import { sprinkles } from "@style-system/atoms/sprinkles.css";
 
-export const test = style({
-  color: "red",
+export const test = sprinkles({
+  color: "eucalyptus900",
+  marginLeft: "space-d",
 });
