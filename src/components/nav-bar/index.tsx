@@ -9,7 +9,9 @@ export const NavBar = () => {
   const currentUser = api.user.getCurrentUser.useQuery();
   const credits = currentUser.data?.credits;
 
-  const checkoutUrl = api.checkout.getCheckoutUrl.useQuery();
+  const checkoutUrl = api.checkout.getCheckoutUrl.useQuery({
+    productId: "100_credits",
+  });
 
   return (
     <nav>
@@ -19,7 +21,9 @@ export const NavBar = () => {
           <button onClick={() => signOut()}>Log Out</button>
           <p>Session user: {session.data.user.name}</p>
           <p>Credits: {credits}</p>
-          {checkoutUrl.data && <Link href={checkoutUrl.data}>Buy Credits</Link>}
+          {checkoutUrl.data && (
+            <Link href={checkoutUrl.data}>Buy 100 Credits</Link>
+          )}
         </>
       ) : (
         <button onClick={() => signIn()}>Log In</button>

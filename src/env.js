@@ -31,7 +31,7 @@ export const env = createEnv({
     ),
     GOOGLE_CLIENT_ID: z.string(),
     GOOGLE_CLIENT_SECRET: z.string(),
-    STRIPE_PRICE_KEY: z.string(),
+    STRIPE_PRODUCT_100_CREDITS: z.string(),
     STRIPE_SECRET_KEY: z.string(),
     STRIPE_WEBHOOK_SECRET: z.string(),
   },
@@ -61,7 +61,7 @@ export const env = createEnv({
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY:
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
-    STRIPE_PRICE_KEY: process.env.STRIPE_PRICE_KEY,
+    STRIPE_PRODUCT_100_CREDITS: process.env.STRIPE_PRODUCT_100_CREDITS,
     STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
   },
   /**

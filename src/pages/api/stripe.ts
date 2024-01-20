@@ -1,4 +1,5 @@
 import { env } from "@env";
+
 import { runMiddleware } from "@utils/run-middleware";
 import Cors from "cors";
 import {
@@ -7,6 +8,16 @@ import {
   type NextApiResponse,
 } from "next";
 import Stripe from "stripe";
+import { db } from "@server/db";
+
+type MetaData = {
+  userId: string;
+  credits: number;
+};
+
+type StripCheckoutSessionWithMetaData = Stripe.Checkout.Session & {
+  metadata: MetaData;
+};
 
 const stripe = new Stripe(env.STRIPE_SECRET_KEY);
 
@@ -53,6 +64,7 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
     const buf = await buffer(req);
     const sig = req.headers["stripe-signature"];
     if (!sig) throw new Error("Missing stripe-signature header");
+    // constructEvent will throw an error if the stripe event is not authentic
     const event = stripe.webhooks.constructEvent(
       buf.toString(),
       sig,
@@ -60,12 +72,29 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
     );
     if (!permittedEvents.includes(event.type))
       throw new Error(`Invalid webhook event. Recieved ${event.type}`);
-    switch (event.type) {
-      case "checkout.session.completed":
-        console.log("~~~~~RECIEVED A VALID WEBHOOK EVENT AND SHOULD UPDATE DB");
-    }
+    /**
+     * At this point we can safely say the request is valid.
+     * Stripe best practices state a 200 status code should be quickly sent before complex logic takes place
+     * https://stripe.com/docs/webhooks#best-practices
+     */
     res.status(200);
     res.end();
+    switch (event.type) {
+      case "checkout.session.completed":
+        const checkoutSession = event.data
+          .object as StripCheckoutSessionWithMetaData;
+
+        await db.user.update({
+          where: {
+            id: checkoutSession.metadata.userId,
+          },
+          data: {
+            credits: {
+              increment: Number(checkoutSession.metadata.credits),
+            },
+          },
+        });
+    }
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : "Unknown error";
     if (err! instanceof Error) console.log(err);
