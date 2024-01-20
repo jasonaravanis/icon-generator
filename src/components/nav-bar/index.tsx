@@ -9,12 +9,7 @@ export const NavBar = () => {
   const currentUser = api.user.getCurrentUser.useQuery();
   const credits = currentUser.data?.credits;
 
-  const buyCredits = async () => {
-    await fetch("/api/stripe", {
-      method: "POST",
-      redirect: "follow", // does not work, apparantly fetch won't redirect to stripe checkout page. But doing the form submission method below does work.
-    });
-  };
+  const checkoutUrl = api.checkout.getCheckoutUrl.useQuery();
 
   return (
     <nav>
@@ -24,14 +19,11 @@ export const NavBar = () => {
           <button onClick={() => signOut()}>Log Out</button>
           <p>Session user: {session.data.user.name}</p>
           <p>Credits: {credits}</p>
-          <button onClick={() => buyCredits()}>Buy Credits</button>
+          {checkoutUrl.data && <Link href={checkoutUrl.data}>Buy Credits</Link>}
         </>
       ) : (
         <button onClick={() => signIn()}>Log In</button>
       )}
-      <form method="POST" action="/api/stripe">
-        <button type="submit">Submit</button>
-      </form>
     </nav>
   );
 };
