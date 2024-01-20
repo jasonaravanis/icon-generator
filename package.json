@@ -10,7 +10,8 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "stripe:listen": "stripe listen --forward-to localhost:3000/api/stripe"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
@@ -25,6 +26,7 @@
     "@vanilla-extract/css": "^1.14.0",
     "@vanilla-extract/sprinkles": "^1.6.1",
     "clsx": "^2.1.0",
+    "cors": "^2.8.5",
     "lodash": "^4.17.21",
     "next": "^14.0.4",
     "next-auth": "^4.24.5",
@@ -35,6 +37,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/eslint": "^8.44.7",
     "@types/jest": "^29.5.11",
     "@types/lodash": "^4.14.202",
