@@ -13,7 +13,7 @@ export const checkoutRouter = createTRPCRouter({
         productId: z.enum(productIdsList),
       })
     )
-    .query(async ({ ctx, input }) => {
+    .mutation(async ({ ctx, input }) => {
       const stripeProduct = productList.find(
         (prod) => prod.id === input.productId
       );

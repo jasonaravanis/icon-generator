@@ -9,9 +9,20 @@ export const NavBar = () => {
   const currentUser = api.user.getCurrentUser.useQuery();
   const credits = currentUser.data?.credits;
 
-  const checkoutUrl = api.checkout.getCheckoutUrl.useQuery({
-    productId: "100_credits",
+  const checkoutMutation = api.checkout.getCheckoutUrl.useMutation({
+    onSuccess: (data, variables, context) => {
+      console.log("got the checkout url!");
+      console.log(data, variables, context);
+      if (data) {
+        window.location.href = data;
+      }
+    },
   });
+
+  const getCheckoutUrl = () =>
+    checkoutMutation.mutate({
+      productId: "100_credits",
+    });
 
   return (
     <nav>
@@ -21,9 +32,8 @@ export const NavBar = () => {
           <button onClick={() => signOut()}>Log Out</button>
           <p>Session user: {session.data.user.name}</p>
           <p>Credits: {credits}</p>
-          {checkoutUrl.data && (
-            <Link href={checkoutUrl.data}>Buy 100 Credits</Link>
-          )}
+          {/* <Link href="/checkout">Buy 100 Credits</Link> */}
+          <button onClick={getCheckoutUrl}>Buy 100 Credits</button>
         </>
       ) : (
         <button onClick={() => signIn()}>Log In</button>
