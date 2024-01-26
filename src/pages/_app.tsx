@@ -14,6 +14,11 @@ const geist = nextFontLocal({
   src: [
     {
       path: "../styles/fonts/Geist-Black.woff2",
+      weight: "1000",
+      style: "normal",
+    },
+    {
+      path: "../styles/fonts/Geist-Bold.woff2",
       weight: "800",
       style: "normal",
     },
