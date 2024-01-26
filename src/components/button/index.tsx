@@ -35,7 +35,7 @@ const Button = ({
         {icon && (
           <Flex
             color="current"
-            width="space-d"
+            width={{ mobile: "space-d", tablet: "space-c", desktop: "space-b" }}
             alignItems="center"
             justifyContent="center"
           >
