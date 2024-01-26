@@ -23,6 +23,11 @@ const geist = nextFontLocal({
       style: "normal",
     },
     {
+      path: "../styles/fonts/Geist-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
       path: "../styles/fonts/Geist-Regular.woff2",
       weight: "400",
       style: "normal",

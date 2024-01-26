@@ -46,7 +46,7 @@ export const text = recipe({
           desktop: { fontSize: "1.375rem", lineHeight: "1.625rem" },
         }),
         sprinkles({
-          fontWeight: "bold",
+          fontWeight: "semibold",
         }),
       ]),
     },
