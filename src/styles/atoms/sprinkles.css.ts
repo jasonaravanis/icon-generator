@@ -55,6 +55,7 @@ const eventProperties = defineProperties({
   properties: {
     background: colors,
     backgroundColor: colors,
+    borderRadius: vars.borderRadius,
     borderTopLeftRadius: vars.borderRadius,
     borderTopRightRadius: vars.borderRadius,
     borderBottomLeftRadius: vars.borderRadius,
@@ -75,12 +76,7 @@ const eventProperties = defineProperties({
     outlineStyle: vars.borderStyles,
   },
   shorthands: {
-    radius: [
-      "borderTopLeftRadius",
-      "borderTopRightRadius",
-      "borderBottomLeftRadius",
-      "borderBottomRightRadius",
-    ],
+    radius: ["borderRadius"],
     shadow: ["boxShadow"],
     borderStyle: [
       "borderLeftStyle",
