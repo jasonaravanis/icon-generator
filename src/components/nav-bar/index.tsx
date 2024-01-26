@@ -2,6 +2,7 @@ import { api } from "@utils/api";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import { testStyle } from "./index.css";
+import { Heading } from "@components/typography";
 
 export const NavBar = () => {
   const session = useSession();
@@ -28,6 +29,9 @@ export const NavBar = () => {
   return (
     <nav>
       <p className={testStyle}>Nav Bar</p>
+      <Heading as="h1" style="h1">
+        Test Heading
+      </Heading>
       {isLoggedIn ? (
         <>
           <button onClick={() => signOut()}>Log Out</button>

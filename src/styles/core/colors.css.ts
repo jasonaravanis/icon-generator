@@ -1,22 +1,43 @@
-export const colors = {
-  inherit: 'inherit',
-  current: 'currentColor',
-  transparent: 'transparent',
-  black: '#000',
-  darkGrey: '#808080',
-  neutral: '#DDDDDD',
-  lightGrey: '#F9F9F9',
-  white: '#fff',
+export const baseColors = {
+  inherit: "inherit",
+  current: "currentColor",
+  transparent: "transparent",
+  black: "#000",
+  white: "#fff",
 
-  glass: '#ffffff77',
-  overlay: '#00000073',
+  primary50: "#fafaf9",
+  primary100: "#f5f5f4",
+  primary200: "#e7e5e4",
+  primary300: "#d6d3d1",
+  primary400: "#a8a29e",
+  primary500: "#78716c",
+  primary600: "#57534e",
+  primary700: "#44403c",
+  primary800: "#292524",
+  primary900: "#1c1917",
+  primary950: "#0c0a09",
 
-  eucalyptus100: '#E6FCF6',
-  eucalyptus900: '#00E4A0',
-  eucalyptusRadial: 'radial-gradient(circle, rgba(0,228,160,1) 0%, rgba(0,228,160,0) 50%)',
-
-  eucalyptusLinear: 'linear-gradient(0deg, #00E4A0 0%, #E6FCF6 100%)',
-
-  gold100: '#FFFBE6',
-  gold900: '#FFD600',
+  red: "red",
+  blue: "blue",
+  green: "green",
+  purple: "purple",
 } as const;
+
+export const contract = {
+  "text/contrast": null,
+  "text/default": null,
+};
+
+type Contract = {
+  [key in keyof typeof contract]: (typeof baseColors)[keyof typeof baseColors];
+};
+
+export const midnight: Contract = {
+  "text/contrast": baseColors.red,
+  "text/default": baseColors.blue,
+};
+
+export const dawn: Contract = {
+  "text/contrast": baseColors.green,
+  "text/default": baseColors.purple,
+};

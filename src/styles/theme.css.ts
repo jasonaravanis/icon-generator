@@ -1,17 +1,29 @@
-import { assignVars, createTheme, createThemeContract, style } from '@vanilla-extract/css';
+import {
+  assignVars,
+  createTheme,
+  createThemeContract,
+  style,
+} from "@vanilla-extract/css";
 
-import * as properties from './atoms/properties/index.css';
-import { colors } from './core/colors.css';
-import { responsiveStyle } from './utils/responsiveStyle.css';
+import * as properties from "./atoms/properties/index.css";
+import { baseColors, contract, midnight, dawn } from "./core/colors.css";
+import { responsiveStyle } from "./utils/responsiveStyle.css";
 
-export const vars = createThemeContract({
+export const [baseTheme, vars] = createTheme({
   ...properties,
-  colors,
 });
 
-export const defaultTheme = createTheme(vars, {
-  ...properties,
-  colors,
+export const colors = createThemeContract({ ...baseColors, ...contract });
+
+// midnight dark mode is the default
+export const defaultTheme = createTheme(colors, {
+  ...baseColors,
+  ...midnight,
+});
+
+export const dawnTheme = createTheme(colors, {
+  ...baseColors,
+  ...dawn,
 });
 
 export const responsiveTheme = style(
