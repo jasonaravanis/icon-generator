@@ -35,8 +35,13 @@ export const text = recipe({
           tablet: { fontSize: "1.25rem", lineHeight: "1.5rem" },
           desktop: { fontSize: "1.375rem", lineHeight: "1.625rem" },
         }),
-        style({
-          fontWeight: "400",
+        sprinkles({
+          fontWeight: "regular",
+        }),
+      ]),
+      button: style([
+        sprinkles({
+          fontWeight: "black",
         }),
       ]),
     },

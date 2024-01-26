@@ -7,6 +7,7 @@ export const heading = recipe({
   base: style([
     sprinkles({
       fontFamily: "geist",
+      fontWeight: "black",
       color: "transparent",
     }),
     style({
