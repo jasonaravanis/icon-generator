@@ -26,18 +26,21 @@ export const baseColors = {
 export const contract = {
   "text/contrast": null,
   "text/default": null,
+  "text/gradient": null,
 };
 
 type Contract = {
-  [key in keyof typeof contract]: (typeof baseColors)[keyof typeof baseColors];
+  [key in keyof typeof contract]: string;
 };
 
 export const midnight: Contract = {
   "text/contrast": baseColors.red,
-  "text/default": baseColors.blue,
+  "text/default": baseColors.red,
+  "text/gradient": `linear-gradient(180deg, ${baseColors.primary50} 4%, ${baseColors.primary400} 200%)`,
 };
 
 export const dawn: Contract = {
   "text/contrast": baseColors.green,
-  "text/default": baseColors.purple,
+  "text/default": baseColors.green,
+  "text/gradient": baseColors.purple,
 };
