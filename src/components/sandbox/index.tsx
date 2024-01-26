@@ -1,8 +1,8 @@
 import { api } from "@utils/api";
 import { useSession, signIn, signOut } from "next-auth/react";
-import Link from "next/link";
-import { testStyle } from "./index.css";
+import { container } from "./index.css";
 import { Heading } from "@components/typography";
+import { Text } from "@components/typography/text";
 
 const Sandbox = () => {
   const session = useSession();
@@ -27,7 +27,7 @@ const Sandbox = () => {
     });
 
   return (
-    <nav>
+    <nav className={container}>
       <Heading as="h1" style="h1">
         Heading One
       </Heading>
@@ -43,6 +43,8 @@ const Sandbox = () => {
       <Heading as="h1" style="h5">
         Heading Five
       </Heading>
+      <Text>This is some text</Text>
+      <Text color="contrast">This is some contrast text</Text>
       {isLoggedIn ? (
         <>
           <button onClick={() => signOut()}>Log Out</button>

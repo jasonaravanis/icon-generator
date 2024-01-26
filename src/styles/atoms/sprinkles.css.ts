@@ -8,7 +8,7 @@ const responsiveProperties = defineProperties({
   conditions: breakpointQueries,
   defaultCondition: "none",
   properties: {
-    display: ["none", "block", "flex", "grid"],
+    display: ["none", "block", "flex", "grid", "inline", "inline-block"],
 
     paddingLeft: vars.spacingConst,
     paddingRight: vars.spacingConst,

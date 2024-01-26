@@ -17,6 +17,11 @@ const geist = nextFontLocal({
       weight: "800",
       style: "normal",
     },
+    {
+      path: "../styles/fonts/Geist-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
   ],
   variable: "--font-geist",
 });
