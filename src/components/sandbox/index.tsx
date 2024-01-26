@@ -3,6 +3,8 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { container } from "./index.css";
 import { Heading } from "@components/typography";
 import { Text } from "@components/typography/text";
+// import { Button } from "@components/button";
+import { Icon } from "@components/icon";
 
 const Sandbox = () => {
   const session = useSession();
@@ -27,7 +29,7 @@ const Sandbox = () => {
     });
 
   return (
-    <nav className={container}>
+    <nav>
       <Heading as="h1" style="h1">
         Heading One
       </Heading>
@@ -45,12 +47,13 @@ const Sandbox = () => {
       </Heading>
       <Text>This is some text</Text>
       <Text color="contrast">This is some contrast text</Text>
+      {/* <Button label="Generate" /> */}
+      <Icon name="airplane_ticket" />
       {isLoggedIn ? (
         <>
           <button onClick={() => signOut()}>Log Out</button>
           <p>Session user: {session.data.user.name}</p>
           <p>Credits: {credits}</p>
-          {/* <Link href="/checkout">Buy 100 Credits</Link> */}
           <button onClick={getCheckoutUrl}>Buy 100 Credits</button>
         </>
       ) : (
