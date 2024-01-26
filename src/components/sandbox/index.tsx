@@ -29,7 +29,19 @@ const Sandbox = () => {
   return (
     <nav>
       <Heading as="h1" style="h1">
-        Sandbox
+        Heading One
+      </Heading>
+      <Heading as="h1" style="h2">
+        Heading Two
+      </Heading>
+      <Heading as="h1" style="h3">
+        Heading Three
+      </Heading>
+      <Heading as="h1" style="h4">
+        Heading Four
+      </Heading>
+      <Heading as="h1" style="h5">
+        Heading Five
       </Heading>
       {isLoggedIn ? (
         <>

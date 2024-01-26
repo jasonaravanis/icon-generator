@@ -36,6 +36,70 @@ export const heading = recipe({
           },
         }),
       ]),
+      h2: style([
+        responsiveStyle({
+          mobile: {
+            fontSize: "3.5rem",
+            lineHeight: "3.625rem",
+          },
+          tablet: {
+            fontSize: "4rem",
+            lineHeight: "4.12rem",
+          },
+          desktop: {
+            fontSize: "5rem",
+            lineHeight: "5.375rem",
+          },
+        }),
+      ]),
+      h3: style([
+        responsiveStyle({
+          mobile: {
+            fontSize: "3rem",
+            lineHeight: "3.125rem",
+          },
+          tablet: {
+            fontSize: "3.5rem",
+            lineHeight: "3.625rem",
+          },
+          desktop: {
+            fontSize: "4rem",
+            lineHeight: "4.125rem",
+          },
+        }),
+      ]),
+      h4: style([
+        responsiveStyle({
+          mobile: {
+            fontSize: "2rem",
+            lineHeight: "2.125rem",
+          },
+          tablet: {
+            fontSize: "3rem",
+            lineHeight: "3.125rem",
+          },
+          desktop: {
+            fontSize: "3rem",
+            lineHeight: "3.125rem",
+          },
+        }),
+      ]),
+      h5: style([
+        responsiveStyle({
+          mobile: {
+            fontSize: "1.5rem",
+            lineHeight: "2rem",
+          },
+          tablet: {
+            fontSize: "1.75rem",
+            lineHeight: "2.25rem",
+          },
+          desktop: {
+            fontSize: "2rem",
+            lineHeight: "2.25rem",
+          },
+        }),
+      ]),
     },
   },
   defaultVariants: {
