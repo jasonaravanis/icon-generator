@@ -4,7 +4,7 @@ import Link from "next/link";
 import { testStyle } from "./index.css";
 import { Heading } from "@components/typography";
 
-export const NavBar = () => {
+const Sandbox = () => {
   const session = useSession();
   const isLoggedIn = !!session.data;
 
@@ -28,9 +28,8 @@ export const NavBar = () => {
 
   return (
     <nav>
-      <p className={testStyle}>Nav Bar</p>
       <Heading as="h1" style="h1">
-        Test Heading
+        Sandbox
       </Heading>
       {isLoggedIn ? (
         <>
@@ -46,3 +45,5 @@ export const NavBar = () => {
     </nav>
   );
 };
+
+export { Sandbox };
