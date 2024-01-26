@@ -48,6 +48,8 @@ const Sandbox = () => {
       <Text>This is some text</Text>
       <Text color="contrast">This is some contrast text</Text>
       <Button label="Generate" icon={<SomeIcon />} />
+      <Button label="Generate" />
+      <Button label="Generate" icon={<SomeIcon />} disabled={true} />
 
       {isLoggedIn ? (
         <>

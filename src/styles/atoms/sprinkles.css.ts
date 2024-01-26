@@ -55,12 +55,18 @@ const eventProperties = defineProperties({
   properties: {
     background: colors,
     backgroundColor: colors,
+    cursor: ["pointer", "not-allowed"],
     borderRadius: vars.borderRadius,
     borderTopLeftRadius: vars.borderRadius,
     borderTopRightRadius: vars.borderRadius,
     borderBottomLeftRadius: vars.borderRadius,
     borderBottomRightRadius: vars.borderRadius,
-    boxShadow: vars.shadows,
+    /*
+     * TODO: Figure out how to implement box shadow theming better. At the moment
+     * we are just combining the colours with the shadows, in order to make "button/primary/boxshadow"
+     * available as an option. But all the other colours are invalid options for box shadow
+     */
+    boxShadow: { ...vars.shadows, ...colors },
     borderLeftStyle: vars.borderStyles,
     borderRightStyle: vars.borderStyles,
     borderTopStyle: vars.borderStyles,
@@ -94,7 +100,9 @@ const animationProperties = defineProperties({
   },
   defaultCondition: "default",
   properties: {
+    transition: ["all"],
     transitionDuration: vars.duration,
+    transitionTimingFunction: vars.timing,
     animationDuration: vars.duration,
     animationTimingFunction: vars.timing,
   },

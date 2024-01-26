@@ -38,9 +38,10 @@ export const baseColors = {
 export const contract = {
   "text/contrast": null,
   "text/default": null,
-  "text/header/gradient": null,
+  "text/header/background": null,
   "text/error": null,
-  "button/background/gradient": null,
+  "button/primary/background": null,
+  "button/primary/boxshadow": null,
 };
 
 type Contract = {
@@ -50,15 +51,17 @@ type Contract = {
 export const midnight: Contract = {
   "text/contrast": baseColors.primary50,
   "text/default": baseColors.primary500,
-  "text/header/gradient": `linear-gradient(180deg, ${baseColors.primary50} 4%, ${baseColors.primary400} 200%)`,
+  "text/header/background": `linear-gradient(180deg, ${baseColors.primary50}, ${baseColors.primary300})`,
   "text/error": baseColors.red,
-  "button/background/gradient": `linear-gradient(180deg, ${baseColors.secondary600}, ${baseColors.secondary700})`,
+  "button/primary/background": `linear-gradient(180deg, ${baseColors.secondary600}, ${baseColors.secondary700})`,
+  "button/primary/boxshadow": `0px 0px 10px 0px ${baseColors.secondary600};`,
 };
 
 export const dawn: Contract = {
   "text/contrast": baseColors.green,
   "text/default": baseColors.green,
-  "text/header/gradient": baseColors.purple,
+  "text/header/background": baseColors.purple,
   "text/error": baseColors.red,
-  "button/background/gradient": baseColors.green,
+  "button/primary/background": baseColors.green,
+  "button/primary/boxshadow": `0px 0px 10px 0px ${baseColors.secondary600};`,
 };

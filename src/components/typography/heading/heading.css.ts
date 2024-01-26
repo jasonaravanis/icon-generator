@@ -17,7 +17,7 @@ export const heading = recipe({
   variants: {
     color: {
       default: sprinkles({
-        background: "text/header/gradient",
+        background: "text/header/background",
       }),
     },
     style: {
