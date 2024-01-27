@@ -8,6 +8,8 @@ import "@style-system/core/global.css";
 import clsx from "clsx";
 import nextFontLocal from "next/font/local";
 import { NavBar } from "@components/nav-bar";
+import { main } from "./layout.css";
+import { Flex } from "@components/flex";
 
 const geist = nextFontLocal({
   src: [
@@ -46,7 +48,9 @@ const Layout = ({ children }: React.PropsWithChildren) => {
       )}
     >
       <NavBar />
-      <main>{children}</main>
+      <Flex as="main" flexDirection="column" align="center" className={main}>
+        {children}
+      </Flex>
       {/* TODO: add footer */}
     </Box>
   );
