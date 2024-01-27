@@ -36,6 +36,7 @@ export const baseColors = {
 } as const;
 
 export const contract = {
+  background: null,
   "text/contrast": null,
   "text/default": null,
   "text/highlight": null,
@@ -51,6 +52,7 @@ type Contract = {
 };
 
 export const midnight: Contract = {
+  background: baseColors.primary950,
   "text/contrast": baseColors.primary50,
   "text/default": baseColors.primary500,
   "text/highlight": baseColors.secondary400,
@@ -62,6 +64,7 @@ export const midnight: Contract = {
 };
 
 export const dawn: Contract = {
+  background: baseColors.primary950,
   "text/contrast": baseColors.green,
   "text/default": baseColors.green,
   "text/highlight": baseColors.secondary400,
