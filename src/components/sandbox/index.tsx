@@ -5,6 +5,7 @@ import { Heading } from "@components/typography";
 import { Text } from "@components/typography/text";
 import { Button } from "@components/button";
 import { SomeIcon } from "@components/icons/someIcon";
+import { Link } from "@components/link";
 
 const Sandbox = () => {
   const session = useSession();
@@ -51,6 +52,7 @@ const Sandbox = () => {
       <Button label="Generate" />
       <Button label="Generate" icon={<SomeIcon />} disabled={true} />
       <Button label="Login" type="secondary" />
+      <Link href="/" label="Some Link"></Link>
 
       {isLoggedIn ? (
         <>

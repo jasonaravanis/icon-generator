@@ -10,6 +10,14 @@ export const text = recipe({
     sprinkles({
       display: "inline",
       fontFamily: "geist",
+      transition: "all",
+      transitionDuration: "duration-200",
+      transitionTimingFunction: "ease-in-out",
+    }),
+    responsiveStyle({
+      mobile: { fontSize: "1.25rem", lineHeight: "1.5rem" },
+      tablet: { fontSize: "1.25rem", lineHeight: "1.5rem" },
+      desktop: { fontSize: "1.375rem", lineHeight: "1.625rem" },
     }),
   ]),
   variants: {
@@ -30,20 +38,21 @@ export const text = recipe({
     style: {
       none: sprinkles({}),
       body1: style([
-        responsiveStyle({
-          mobile: { fontSize: "1.25rem", lineHeight: "1.5rem" },
-          tablet: { fontSize: "1.25rem", lineHeight: "1.5rem" },
-          desktop: { fontSize: "1.375rem", lineHeight: "1.625rem" },
-        }),
         sprinkles({
           fontWeight: "regular",
         }),
       ]),
-      button: style([
+      button: sprinkles({
+        fontWeight: "semibold",
+        fontSize: { mobile: "size-c", tablet: "size-b", desktop: "size-b" },
+      }),
+      link: style([
         sprinkles({
-          fontWeight: "semibold",
-          fontSize: { mobile: "size-c", tablet: "size-b", desktop: "size-b" },
+          color: { hover: "text/highlight" },
         }),
+        // style({
+        //   textDecorationLine: "none",
+        // }),
       ]),
     },
   },

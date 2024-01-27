@@ -38,6 +38,7 @@ export const baseColors = {
 export const contract = {
   "text/contrast": null,
   "text/default": null,
+  "text/highlight": null,
   "text/header/background": null,
   "text/error": null,
   "button/primary/background": null,
@@ -52,6 +53,7 @@ type Contract = {
 export const midnight: Contract = {
   "text/contrast": baseColors.primary50,
   "text/default": baseColors.primary500,
+  "text/highlight": baseColors.secondary400,
   "text/header/background": `linear-gradient(180deg, ${baseColors.primary50}, ${baseColors.primary300})`,
   "text/error": baseColors.red,
   "button/primary/background": `linear-gradient(180deg, ${baseColors.secondary600}, ${baseColors.secondary700})`,
@@ -62,6 +64,7 @@ export const midnight: Contract = {
 export const dawn: Contract = {
   "text/contrast": baseColors.green,
   "text/default": baseColors.green,
+  "text/highlight": baseColors.secondary400,
   "text/header/background": baseColors.purple,
   "text/error": baseColors.red,
   "button/primary/background": baseColors.green,
