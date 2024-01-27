@@ -7,6 +7,7 @@ import {
   defaultTheme,
   responsiveTheme,
 } from "@style-system/styles.css";
+import "@style-system/core/global.css";
 import clsx from "clsx";
 import nextFontLocal from "next/font/local";
 
