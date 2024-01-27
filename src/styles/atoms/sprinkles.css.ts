@@ -5,11 +5,15 @@ import { vars, colors } from "@style-system/theme.css";
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 
 const responsiveProperties = defineProperties({
-  conditions: breakpointQueries,
-  defaultCondition: "none",
+  conditions: {
+    ...breakpointQueries,
+    lastChild: { selector: "&:last-child" },
+    firstChild: { selector: "&:first-child" },
+  },
+  defaultCondition: "default",
   properties: {
-    display: ["none", "block", "flex", "grid", "inline", "inline-block"],
-
+    display: ["block", "flex", "grid", "inline", "inline-block", "none"],
+    visibility: ["visible", "hidden"],
     paddingLeft: vars.spacingConst,
     paddingRight: vars.spacingConst,
     paddingTop: vars.spacingConst,
@@ -20,6 +24,10 @@ const responsiveProperties = defineProperties({
     marginTop: vars.spacingRel,
     marginBottom: vars.spacingRel,
 
+    rowGap: vars.spacingConst,
+    columnGap: vars.spacingRel,
+    gap: vars.spacingRel,
+
     left: vars.spacingConst,
     right: vars.spacingConst,
     top: vars.spacingConst,
@@ -29,6 +37,8 @@ const responsiveProperties = defineProperties({
     maxHeight: vars.spacingConst,
     width: vars.spacingConst,
     maxWidth: vars.spacingConst,
+    zIndex: [-2, -1, 0, 1, 2],
+    textAlign: ["left", "center", "right", "start", "end", "justify"],
 
     fontSize: vars.fontSize,
     fontWeight: vars.fontWeight,
@@ -39,6 +49,8 @@ const responsiveProperties = defineProperties({
     padding: ["paddingBottom", "paddingLeft", "paddingRight", "paddingTop"],
     paddingX: ["paddingLeft", "paddingRight"],
     paddingY: ["paddingTop", "paddingBottom"],
+    marginX: ["marginLeft", "marginRight"],
+    marginY: ["marginTop", "marginBottom"],
     inset: ["top", "left", "bottom", "right"],
   },
 });
@@ -132,26 +144,34 @@ const unresponsiveProperties = defineProperties({
 
 const flexProperties = defineProperties({
   conditions: breakpointQueries,
-  defaultCondition: "none",
+  defaultCondition: "default",
   properties: {
     display: Flex.display,
     flexDirection: ["row", "row-reverse", "column", "column-reverse"],
-    gap: vars.spacingRel,
+    rowGap: vars.spacingConst,
+    columnGap: vars.spacingRel,
     alignItems: Flex.align,
-    justifyContent: Flex.align,
-    wrap: ["wrap", "nowrap"],
+    alignSelf: Flex.align,
+    justifyContent: Flex.justify,
+    justifySelf: Flex.align,
+    flexWrap: ["wrap", "nowrap"],
     flex: ["0", "1"],
+    flexGrow: ["0", "1"],
   },
   shorthands: {
     direction: ["flexDirection"],
     align: ["alignItems"],
     justify: ["justifyContent"],
+    gap: ["rowGap", "columnGap"],
+    self: ["alignSelf"],
+    grow: ["flexGrow"],
+    wrap: ["flexWrap"],
   },
 });
 
 const gridProperties = defineProperties({
   conditions: breakpointQueries,
-  defaultCondition: "none",
+  defaultCondition: "default",
   properties: {
     display: Grid.display,
     gridColumnStart: Grid.columns,

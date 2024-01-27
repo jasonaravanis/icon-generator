@@ -24,7 +24,7 @@ export const getQuery = (breakpoint: BreakpointValue) =>
 export type MediaQuery = string;
 
 export const breakpointQueries = extend(
-  { none: {} },
+  { default: {} },
   mapValues(breakpoints, (breakpoint: BreakpointValue) => ({
     "@media": getQuery(breakpoint),
   }))
