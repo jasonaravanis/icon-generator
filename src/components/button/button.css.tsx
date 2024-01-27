@@ -3,7 +3,7 @@ import { type RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const buttonRecipe = recipe({
   base: sprinkles({
-    color: "white",
+    color: "text/contrast",
     paddingX: { mobile: "space-d", tablet: "space-c", desktop: "space-b" },
     paddingY: { mobile: "space-c", tablet: "space-c", desktop: "space-a" },
     radius: "2",
@@ -24,14 +24,6 @@ export const buttonRecipe = recipe({
         boxShadow: { default: "none", hover: "button/primary/boxshadow" },
       }),
       secondary: sprinkles({
-        background: {
-          default: "transparent",
-          hover: "text/contrast",
-        },
-        color: {
-          default: "text/contrast",
-          hover: "black",
-        },
         borderWidth: "1",
         borderColor: "text/contrast",
         boxShadow: { default: "none", hover: "button/secondary/boxshadow" },
