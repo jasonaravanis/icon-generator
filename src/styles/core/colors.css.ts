@@ -42,6 +42,7 @@ export const contract = {
   "text/error": null,
   "button/primary/background": null,
   "button/primary/boxshadow": null,
+  "button/secondary/boxshadow": null,
 };
 
 type Contract = {
@@ -55,6 +56,7 @@ export const midnight: Contract = {
   "text/error": baseColors.red,
   "button/primary/background": `linear-gradient(180deg, ${baseColors.secondary600}, ${baseColors.secondary700})`,
   "button/primary/boxshadow": `0px 0px 10px 0px ${baseColors.secondary600};`,
+  "button/secondary/boxshadow": `0px 0px 10px 0px ${baseColors.primary50};`,
 };
 
 export const dawn: Contract = {
@@ -64,4 +66,5 @@ export const dawn: Contract = {
   "text/error": baseColors.red,
   "button/primary/background": baseColors.green,
   "button/primary/boxshadow": `0px 0px 10px 0px ${baseColors.secondary600};`,
+  "button/secondary/boxshadow": `0px 0px 10px 0px ${baseColors.primary50};`,
 };

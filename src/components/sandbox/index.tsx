@@ -50,6 +50,7 @@ const Sandbox = () => {
       <Button label="Generate" icon={<SomeIcon />} />
       <Button label="Generate" />
       <Button label="Generate" icon={<SomeIcon />} disabled={true} />
+      <Button label="Login" type="secondary" />
 
       {isLoggedIn ? (
         <>
