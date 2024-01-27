@@ -4,6 +4,8 @@ import { Box } from "@components/box";
 import { Button } from "@components/button";
 import { Hamburger } from "@components/icons";
 import { Link } from "@components/link";
+import { useSession } from "next-auth/react";
+import { User } from "@components/icons/user";
 
 const navItems: { href: string; label: string }[] = [
   {
@@ -21,6 +23,8 @@ const navItems: { href: string; label: string }[] = [
 ];
 
 const NavBar = () => {
+  const session = useSession();
+  const isLoggedIn = !!session.data;
   return (
     <Flex className={container} as="nav">
       <Flex className={navBar} justify="space-between" align="center">
@@ -31,7 +35,19 @@ const NavBar = () => {
           ))}
         </Flex>
         <Flex gap="space-c" align="center">
-          <Button type="primary" label="Sign in" />
+          {isLoggedIn ? (
+            <Box
+              display={{ default: "block", mobile: "none" }}
+              width={{
+                tablet: "space-c",
+                desktop: "space-b",
+              }}
+            >
+              <User />
+            </Box>
+          ) : (
+            <Button type="primary" label="Sign in" />
+          )}
           <Box
             display={{ default: "none", mobile: "block" }}
             width={{
