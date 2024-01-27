@@ -35,7 +35,7 @@ const responsiveProperties = defineProperties({
 
     height: vars.spacingConst,
     maxHeight: vars.spacingConst,
-    width: vars.spacingConst,
+    width: { ...vars.spacingConst, full: "100%" },
     maxWidth: vars.spacingConst,
     zIndex: [-2, -1, 0, 1, 2],
     textAlign: ["left", "center", "right", "start", "end", "justify"],

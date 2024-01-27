@@ -1,5 +1,5 @@
 import { Flex } from "@components/flex";
-import { container, navBar } from "./navBar.css";
+import { container } from "./navBar.css";
 import { Box } from "@components/box";
 import { Button } from "@components/button";
 import { Hamburger } from "@components/icons";
@@ -26,8 +26,8 @@ const NavBar = () => {
   const session = useSession();
   const isLoggedIn = !!session.data;
   return (
-    <Flex className={container} as="nav">
-      <Flex className={navBar} justify="space-between" align="center">
+    <Flex className={container} as="nav" width="full">
+      <Flex justify="space-between" align="center" width="full">
         <Box>Logo</Box>
         <Flex gap="space-e" display={{ default: "flex", mobile: "none" }}>
           {navItems.map((item) => (
