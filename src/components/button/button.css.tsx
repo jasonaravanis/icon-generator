@@ -4,8 +4,8 @@ import { type RecipeVariants, recipe } from "@vanilla-extract/recipes";
 export const buttonRecipe = recipe({
   base: sprinkles({
     color: "text/contrast",
-    paddingX: { mobile: "space-c", tablet: "space-c", desktop: "space-b" },
-    paddingY: { mobile: "space-b", tablet: "space-c", desktop: "space-a" },
+    paddingX: { mobile: "space-c", tablet: "space-b", desktop: "space-b" },
+    paddingY: { mobile: "space-c", tablet: "space-b", desktop: "space-a" },
     radius: "2",
     borderWidth: "0",
     borderStyle: "solid",

@@ -10,7 +10,7 @@ export const container = style([
     borderWidth: "0.5",
     color: "text/contrast",
     paddingX: { default: "space-c" },
-    paddingY: { default: "space-c" },
+    paddingY: { default: "space-c", desktop: "space-a" },
   }),
   style({
     width: "100%",

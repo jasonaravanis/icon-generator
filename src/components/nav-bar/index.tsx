@@ -3,15 +3,42 @@ import { container, navBar } from "./navBar.css";
 import { Box } from "@components/box";
 import { Button } from "@components/button";
 import { Hamburger } from "@components/icons";
+import { Link } from "@components/link";
+
+const navItems: { href: string; label: string }[] = [
+  {
+    href: "/create",
+    label: "Create",
+  },
+  {
+    href: "/discover",
+    label: "Discover",
+  },
+  {
+    href: "/your-gallery",
+    label: "Your Gallery",
+  },
+];
 
 const NavBar = () => {
   return (
     <Flex className={container} as="nav">
       <Flex className={navBar} justify="space-between" align="center">
         <Box>Logo</Box>
-        <Flex gap="space-c">
-          <Button type="primary" label="Get Started" />
-          <Box width="space-e">
+        <Flex gap="space-e" display={{ default: "flex", mobile: "none" }}>
+          {navItems.map((item) => (
+            <Link key={item.href} {...item} />
+          ))}
+        </Flex>
+        <Flex gap="space-c" align="center">
+          <Button type="primary" label="Sign in" />
+          <Box
+            display={{ default: "none", mobile: "block" }}
+            width={{
+              default: "space-e",
+              tablet: "space-d",
+            }}
+          >
             <Hamburger />
           </Box>
         </Flex>
