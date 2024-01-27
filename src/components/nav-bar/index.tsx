@@ -1,12 +1,21 @@
 import { Flex } from "@components/flex";
-import { container } from "./navBar.css";
+import { container, navBar } from "./navBar.css";
+import { Box } from "@components/box";
+import { Button } from "@components/button";
+import { Hamburger } from "@components/icons";
 
 const NavBar = () => {
   return (
     <Flex className={container} as="nav">
-      <div>Item One</div>
-      <div>Item Two</div>
-      <div>Item Three</div>
+      <Flex className={navBar} justify="space-between" align="center">
+        <Box>Logo</Box>
+        <Flex gap="space-c">
+          <Button type="primary" label="Get Started" />
+          <Box width="space-e">
+            <Hamburger />
+          </Box>
+        </Flex>
+      </Flex>
     </Flex>
   );
 };
