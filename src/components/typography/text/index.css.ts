@@ -1,5 +1,4 @@
 import { sprinkles } from "@style-system/atoms/sprinkles.css";
-import { responsiveStyle } from "@style-system/utils/responsiveStyle.css";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
@@ -35,23 +34,16 @@ export const text = recipe({
       body1: style([
         sprinkles({
           fontWeight: "regular",
-        }),
-        style({
-          fontSize: "1.25rem",
-          lineHeight: "1.5rem",
+          fontSize: "size-c",
         }),
       ]),
       button: sprinkles({
         fontWeight: "semibold",
-        // fontSize: { mobile: "size-c", tablet: "size-b", desktop: "size-b" },
       }),
       link: style([
         sprinkles({
           color: { hover: "text/highlight" },
         }),
-        // style({
-        //   textDecorationLine: "none",
-        // }),
       ]),
     },
   },

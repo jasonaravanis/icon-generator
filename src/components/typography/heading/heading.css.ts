@@ -25,7 +25,7 @@ export const heading = recipe({
         responsiveStyle({
           mobile: {
             fontSize: "2.75rem",
-            lineHeight: "4.125rem",
+            lineHeight: "3rem",
           },
           tablet: {
             fontSize: "5rem",
@@ -40,16 +40,16 @@ export const heading = recipe({
       h2: style([
         responsiveStyle({
           mobile: {
-            fontSize: "3.5rem",
-            lineHeight: "3.625rem",
+            fontSize: "2rem",
+            lineHeight: "2.25rem",
           },
           tablet: {
-            fontSize: "4rem",
-            lineHeight: "4.12rem",
+            fontSize: "3rem",
+            lineHeight: "3.25rem",
           },
           desktop: {
-            fontSize: "5rem",
-            lineHeight: "5.375rem",
+            fontSize: "4rem",
+            lineHeight: "4.25rem",
           },
         }),
       ]),
