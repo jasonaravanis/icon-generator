@@ -1,4 +1,4 @@
-import { sprinkles } from "@style-system/styles.css";
+import { sprinkles } from "@styles/styles.css";
 
 export const testStyle = sprinkles({
   fontFamily: "geist",

@@ -1,7 +1,4 @@
-import type {
-  MediaQuery,
-  breakpoints,
-} from "@style-system/core/breakpoints.css";
+import type { MediaQuery, breakpoints } from "@styles/core/breakpoints.css";
 
 export type Breakpoint = keyof typeof breakpoints;
 

@@ -1,4 +1,4 @@
-import { sprinkles } from "@style-system/styles.css";
+import { sprinkles } from "@styles/styles.css";
 import { type RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const buttonRecipe = recipe({

@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { createElement, forwardRef } from "react";
-import { sprinkles, type Sprinkles } from "@style-system/styles.css";
+import { sprinkles, type Sprinkles } from "@styles/styles.css";
 
 type HTMLProperties<T = HTMLElement> = Omit<
   React.AllHTMLAttributes<T>,

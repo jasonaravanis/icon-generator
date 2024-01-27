@@ -2,12 +2,8 @@ import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
 import { api } from "@utils/api";
-import {
-  baseTheme,
-  defaultTheme,
-  responsiveTheme,
-} from "@style-system/styles.css";
-import "@style-system/core/global.css";
+import { baseTheme, defaultTheme, responsiveTheme } from "@styles/styles.css";
+import "@styles/core/global.css";
 import clsx from "clsx";
 import nextFontLocal from "next/font/local";
 

@@ -1,5 +1,5 @@
-import { sprinkles } from "@style-system/styles.css";
-import { responsiveStyle } from "@style-system/utils/responsiveStyle.css";
+import { sprinkles } from "@styles/styles.css";
+import { responsiveStyle } from "@styles/utils/responsiveStyle.css";
 import { style } from "@vanilla-extract/css";
 import { type RecipeVariants, recipe } from "@vanilla-extract/recipes";
 

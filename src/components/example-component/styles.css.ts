@@ -1,4 +1,4 @@
-import { sprinkles } from "@style-system/atoms/sprinkles.css";
+import { sprinkles } from "@styles/atoms/sprinkles.css";
 
 export const test = sprinkles({
   marginLeft: "space-d",

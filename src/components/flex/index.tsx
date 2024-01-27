@@ -1,8 +1,8 @@
-import { flexSprinkles } from "@style-system/atoms/sprinkles.css";
+import { flexSprinkles } from "@styles/atoms/sprinkles.css";
 import clsx from "clsx";
 import * as React from "react";
 
-import type { FlexSprinkles } from "@style-system/atoms/sprinkles.css";
+import type { FlexSprinkles } from "@styles/atoms/sprinkles.css";
 import type { ClassValue } from "clsx";
 
 type HTMLProperties<T = HTMLElement> = Omit<
