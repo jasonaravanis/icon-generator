@@ -30,7 +30,7 @@
       "@server/*": ["./src/server/*"],
       "@utils/*": ["./src/utils/*"],
       "@env": ["./src/env"],
-      "@styles/*": ["./src/styles/*"]
+      "@style-system/*": ["./src/styles/*"]
     }
   },
   "include": [

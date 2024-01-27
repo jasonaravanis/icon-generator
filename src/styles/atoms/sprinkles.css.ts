@@ -1,7 +1,7 @@
-import { breakpointQueries } from "@styles/core/breakpoints.css";
-import * as Flex from "@styles/core/flex.css";
-import * as Grid from "@styles/core/grid.css";
-import { vars, colors } from "@styles/theme.css";
+import { breakpointQueries } from "@style-system/core/breakpoints.css";
+import * as Flex from "@style-system/core/flex.css";
+import * as Grid from "@style-system/core/grid.css";
+import { vars, colors } from "@style-system/theme.css";
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 
 const responsiveProperties = defineProperties({
