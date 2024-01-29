@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import clsx from "clsx";
 import nextFontLocal from "next/font/local";
 
@@ -29,7 +30,12 @@ const geist = nextFontLocal({
 
 const Layout = ({ children }: React.PropsWithChildren) => {
   return (
-    <div className={clsx(geist.variable)}>
+    <div
+      className={cn(
+        "bg-background font-geist min-h-screen antialiased",
+        geist.variable,
+      )}
+    >
       {/* TODO: add navBar */}
       <main>{children}</main>
       {/* TODO: add footer */}
