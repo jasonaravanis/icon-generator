@@ -3,8 +3,6 @@ import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
 import { api } from "@utils/api";
 
-import "@style-system/core/global.css";
-
 import { Layout } from "@components/layout";
 
 const MyApp: AppType<{ session: Session | null }> = ({

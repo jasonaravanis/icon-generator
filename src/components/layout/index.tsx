@@ -1,15 +1,5 @@
-import { Box } from "@components/box";
-import {
-  baseTheme,
-  defaultTheme,
-  responsiveTheme,
-} from "@style-system/styles.css";
-import "@style-system/core/global.css";
 import clsx from "clsx";
 import nextFontLocal from "next/font/local";
-import { NavBar } from "@components/nav-bar";
-import { main } from "./layout.css";
-import { Flex } from "@components/flex";
 
 const geist = nextFontLocal({
   src: [
@@ -39,20 +29,11 @@ const geist = nextFontLocal({
 
 const Layout = ({ children }: React.PropsWithChildren) => {
   return (
-    <Box
-      className={clsx(
-        geist.variable,
-        baseTheme,
-        responsiveTheme,
-        defaultTheme // TODO: implement swap to dawnTheme for light mode
-      )}
-    >
-      <NavBar />
-      <Flex as="main" flexDirection="column" align="center" className={main}>
-        {children}
-      </Flex>
+    <div className={clsx(geist.variable)}>
+      {/* TODO: add navBar */}
+      <main>{children}</main>
       {/* TODO: add footer */}
-    </Box>
+    </div>
   );
 };
 
