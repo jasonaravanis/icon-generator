@@ -8,7 +8,7 @@ export default function Home() {
         <meta name="description" content="Icon Generator" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>Hello World</div>
+      <div className="text-red-500">Hello World</div>
     </>
   );
 }
