@@ -1,6 +1,6 @@
 import { env } from "@env";
 
-import { runMiddleware } from "@utils/run-middleware";
+import { runMiddleware } from "@/lib/run-middleware";
 import Cors from "cors";
 import {
   type NextConfig,
@@ -68,7 +68,7 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
     const event = stripe.webhooks.constructEvent(
       buf.toString(),
       sig,
-      env.STRIPE_WEBHOOK_SECRET
+      env.STRIPE_WEBHOOK_SECRET,
     );
     if (!permittedEvents.includes(event.type))
       throw new Error(`Invalid webhook event. Recieved ${event.type}`);

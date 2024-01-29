@@ -26,12 +26,13 @@
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@server/*": ["./src/server/*"],
-      "@utils/*": ["./src/utils/*"],
+      "@utils/*": ["src/lib/*"],
       "@env": ["./src/env"],
-      "@styles/*": ["./src/styles/*"]
-    }
+      "@styles/*": ["./src/styles/*"],
+    },
   },
   "include": [
     ".eslintrc.cjs",
@@ -40,7 +41,7 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }
